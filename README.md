@@ -1,11 +1,5 @@
-# Vite `import.meta.env` optional-chaining repro
+# Vite `import.meta.env` repro
 
-## What to test
+The direct form (`import.meta.env.*`) resolves as expected, but the optional-chained form (`import.meta?.env?.*`) can drop out in build/preview and behave like env is missing.
 
-- Run `npm run dev` and inspect browser console.
-- Run `npm run build && npm run preview` and inspect browser console.
-
-Expected behavior:
-
-- `direct` (`import.meta.env.*`) is correctly replaced/injected by Vite.
-- `optional` (`import.meta?.env?.*`) may not be replaced as expected and can end up undefined in production paths.
+If that’s what your logger path is using, it would explain why mode detection is coming through as undefined.
